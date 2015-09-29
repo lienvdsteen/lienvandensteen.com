@@ -127,17 +127,20 @@ $(document).scroll(function(){
         boxCntOfset8 = $("#content2").position().top + 100,
         boxCntOfset9 = $("#content3").position().top + 100;
 
-
     if(docScroll >= boxCntOfset ) {
-
-      $("#line-1").css('width','82%');// backend
-      $("#line-2").css('width','82%');// coaching
-      $("#line-3").css('width','65%');// frontend
+      $("#line-1").css('width','85%');// backend
+      $("#line-2").css('width','87%');// coaching
+      $("#line-3").css('width','78%');// frontend
+      $("#line-4").css('width','75%');// sql
+      $("#line-5").css('width','65%');// elasticsearch
+      $("#line-6").css('width','35%');// ember
     } else {
       $("#line-1").css('width','0px');
       $("#line-2").css('width','0px');
       $("#line-3").css('width','0px');
-
+      $("#line-4").css('width','0px');
+      $("#line-5").css('width','0px');
+      $("#line-6").css('width','0px');
     }
 
     if((docScroll >= boxCntOfset1) && (docScroll <= boxCntOfset2)) {
