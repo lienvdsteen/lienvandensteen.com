@@ -4,17 +4,13 @@
     $email_to = "info@lienvandensteen.com";
     $email_subject = "Contact From lienvandensteen.com";
 
-
     function died($error) {
-
+        echo "We are very sorry, but there were error(s) found with the form you submitted. ";
         echo $error."<br /><br />";
         die();
     }
 
-
-    if(!isset($_POST['name']) ||
-        !isset($_POST['email']) ||
-        !isset($_POST['message'])) {
+    if(!isset($_POST['name']) || !isset($_POST['email']) || !isset($_POST['message'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');
     }
 
@@ -24,19 +20,21 @@
 
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-  if(!preg_match($email_exp,$email_from)) {
-    $error_message .= '<div class="email-erorr">Please enter a valid email.</div>';
-  }
+
+    if(!preg_match($email_exp,$email_from)) {
+        $error_message .= '<div class="email-erorr">Please enter a valid email.</div>';
+    }
+
     $string_exp = "/^[A-Za-z .'-]+$/";
-  if(!preg_match($string_exp,$first_name)) {
-    $error_message .= '<div class="name-erorr">Please enter your name.</div>';
-  }
-  if(strlen($comments) < 2) {
-    $error_message .= '<div class="message-erorr">Please enter a message.</div>';
-  }
-  if(strlen($error_message) > 0) {
-    died($error_message);
-  }
+    if(!preg_match($string_exp,$first_name)) {
+        $error_message .= '<div class="name-erorr">Please enter your name.</div>';
+    }
+    if(strlen($comments) < 2) {
+        $error_message .= '<div class="message-erorr">Please enter a message.</div>';
+    }
+    if(strlen($error_message) > 0) {
+        died($error_message);
+    }
     $email_message = "Form details below.\n\n";
 
     function clean_string($string) {
@@ -48,17 +46,10 @@
     $email_message .= "Email: ".clean_string($email_from)."\n";
     $email_message .= "Comments: ".clean_string($comments)."\n";
 
-
-
-$headers = 'From: '.$email_from."\r\n".
-'Reply-To: '.$email_from."\r\n" .
-'X-Mailer: PHP/' . phpversion();
-@mail($email_to, $email_subject, $email_message, $headers);
+    $headers = 'From: '.$email_from."\r\n".
+    'Reply-To: '.$email_from."\r\n" .
+    'X-Mailer: PHP/' . phpversion();
+    mail($email_to, $email_subject, $email_message, $headers);
 ?>
-
 
 <div class="success_message">Your message was sent.</div>
-
-<?php
-}
-?>

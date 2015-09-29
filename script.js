@@ -17,11 +17,10 @@ $.backstretch([
 
 
 $('#submit').click(function(){
-$.post("send_form_email.php", $("#contactform").serialize(),  function(response) {
-$('#success').html(response);
-
-});
-return false;
+  $.post("send_form_email.php", $("#contactform").serialize(),  function(response) {
+    $('#success').html(response);
+  });
+  return false;
 });
 
 $(function() {
@@ -39,12 +38,10 @@ opacity: .7
 
 
 function () {
-
-
-$(this).stop().animate({
-opacity: 0
-}, "350");
-});
+  $(this).stop().animate({
+    opacity: 0
+  }, "350");
+  });
 });
 
 $("#back-top").hide();
