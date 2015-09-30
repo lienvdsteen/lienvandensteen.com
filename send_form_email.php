@@ -53,3 +53,6 @@
 ?>
 
 <div class="success_message">Your message was sent.</div>
+<?php
+}
+?>
