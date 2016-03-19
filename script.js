@@ -130,9 +130,9 @@ $(document).scroll(function(){
     if(docScroll >= boxCntOfset ) {
       $("#line-1").css('width','85%');// backend
       $("#line-2").css('width','87%');// coaching
-      $("#line-3").css('width','78%');// frontend
+      $("#line-3").css('width','65%');// frontend
       $("#line-4").css('width','75%');// sql
-      $("#line-5").css('width','65%');// elasticsearch
+      $("#line-5").css('width','60%');// elasticsearch
       $("#line-6").css('width','35%');// ember
     } else {
       $("#line-1").css('width','0px');
